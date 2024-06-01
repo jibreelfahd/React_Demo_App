@@ -1,0 +1,15 @@
+.items {
+  list-style-type: none;
+  background: #fff;
+  width: 35rem;
+  border-radius: 8px;
+  margin: 2rem auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.items p {
+  border: 1px solid #ddd;
+  margin: 0.5rem 0;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+}

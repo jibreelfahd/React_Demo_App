@@ -1,0 +1,27 @@
+.form__wrapper {
+  width: 35rem;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  margin: 2rem auto;
+  max-width: 80%;
+  border-radius: 6px;
+}
+
+.form__items label{
+  display: block;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+.form__items input {
+  width: 100%;
+  margin: 0.5rem 0;
+  border: 1px solid #ccc;
+}
+
+.actions button {
+  color: #dfd9d9;
+  background: #8b005d;
+  border: none;
+  padding: 0.35rem;
+}

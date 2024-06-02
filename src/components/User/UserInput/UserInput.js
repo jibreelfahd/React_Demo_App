@@ -1,43 +1,63 @@
 import React, { useState } from "react";
 
+import Card from "../../UI/Card/Card";
+import Button from "../../UI/Button/Button";
 import styles from "./UserInput.module.css";
 
 const UserInput = (props) => {
-  const [enteredItmes, setEnteredItems] = useState('');
+  const [enteredUsername, setEnteredUsername] = useState("");
+  const [enteredAge, setEnteredAge] = useState("");
 
-  const inputItems = (input, value) => {
-    setEnteredItems((prevValues) => {
-      return {...prevValues, [input]: value };
-    });
+  const usernameChangeHandler = (event) => {
+    setEnteredUsername(event.target.value);
+  };
+  const ageChangeHandler = (event) => {
+    setEnteredAge(event.target.value);
   };
 
   const submitHandler = (event) => {
     event.preventDefault();
 
-    props.onAddData(enteredItmes)
+    const enteredItems = {
+      username: enteredUsername,
+      age: enteredAge,
+      id: Math.random().toString(),
+    };
+
+    if (
+      enteredUsername.trim().length === 0 ||
+      enteredUsername.trim().length === 0
+    ) {
+      return;
+    }
+
+    if (enteredAge < 1) {
+      return;
+    }
+
+    props.onAddData(enteredItems);
+
+    setEnteredUsername("");
+    setEnteredAge("");
   };
   return (
-    <div onSubmit={submitHandler}>
-      <form className={styles.form__wrapper}>
+    <Card className={styles.form__wrapper}>
+      <form onSubmit={submitHandler}>
         <div className={styles.form__items}>
           <label>Username</label>
           <input
             type="text"
-            onChange={(event) => inputItems("username", event.target.value)}
+            value={enteredUsername}
+            onChange={usernameChangeHandler}
           />
         </div>
         <div className={styles.form__items}>
           <label>Age (Years)</label>
-          <input
-            type="number"
-            onChange={(event) => inputItems("age", event.target.value)}
-          />
+          <input type="number" value={enteredAge} onChange={ageChangeHandler} />
         </div>
-        <div className={styles.actions}>
-          <button>Add User</button>
-        </div>
+          <Button type="submit">Add User</Button>
       </form>
-    </div>
+    </Card>
   );
 };
 

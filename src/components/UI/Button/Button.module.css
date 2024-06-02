@@ -1,0 +1,14 @@
+.actions {
+  color: #fff;
+  background: #741188;
+  border: none;
+  padding: 0.25rem 1rem;
+  font: inherit;
+  border: 1px solid #741188;
+}
+
+.actions:hover,
+.actions:active {
+  background: #741188;
+  border: 1px solid #741188;
+}

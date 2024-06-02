@@ -24,10 +24,10 @@ const App = () => {
     });
   };
   return (
-    <div>
+    <>
       <UserInput onAddData={enteredUserInputs} />
       <UserItems userData={userInput} />
-    </div>
+    </>
   );
 };
 
